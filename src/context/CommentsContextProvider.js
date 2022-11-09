@@ -9,7 +9,7 @@ const API = "http://localhost:8000/comments";
 const INIT_STATE = {
   comments: null,
   commentDetails: null,
-  pageTotalCount: 1,
+  // pageTotalCount: 1,
 };
 
 function reducer(prevState, action) {
@@ -18,7 +18,7 @@ function reducer(prevState, action) {
       return {
         ...prevState,
         comment: action.payload.data,
-        pageTotalCount: Math.ceil(action.payload.headers["x-total-count"] / 3),
+        // pageTotalCount: Math.ceil(action.payload.headers["x-total-count"] / 3),
       };
     case "GET_ONE_COMMENT":
       return { ...prevState, commentDetails: action.payload };
@@ -44,27 +44,12 @@ const CommentsContextProvider = ({ children }) => {
 
   //   read
   // console.log(location.search);
-  async function readComment() {
-    const res = await axios(`${API}${location.search}`);
-    dispatch({
-      type: "GET_PRODUCT",
-      payload: res,
-    });
-  }
-
-  async function readOneComment(id) {
-    const { data } = await axios(`${API}/${id}`);
-    dispatch({
-      type: "GET_ONE_COMMENT",
-      payload: data,
-    });
-  }
 
   // delete
   async function deleteComment(id) {
     try {
       await axios.delete(`${API}/${id}`);
-      readComment();
+      // readComment();
       navigate("/list");
     } catch (error) {
       return error;
@@ -73,10 +58,10 @@ const CommentsContextProvider = ({ children }) => {
 
   let cloud = {
     addcomment,
-    readComment,
-    readOneComment,
+    // readComment,
+    // readOneComment,
     deleteComment,
-    commentssArr: state1.comments,
+    commentssArr: state1.comment,
     commentsDetails: state1.commentsDetails,
     pageTotalCount: state1.pageTotalCount,
   };

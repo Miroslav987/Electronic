@@ -29,6 +29,7 @@ function reducer(prevState, action) {
 
 const ProductContextProvider = props => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
+  console.log(state);
   const location = useLocation();
 
   const navigate = useNavigate();
@@ -52,7 +53,6 @@ const ProductContextProvider = props => {
     });
   }
   //   readProduct();
-  //   console.log(state);
 
   async function readOneProduct(id) {
     const { data } = await axios(`${API}/${id}`);
@@ -89,7 +89,6 @@ const ProductContextProvider = props => {
     productDetails: state.productDetails,
     pageTotalCount: state.pageTotalCount,
   };
-  console.log(cloud);
   return (
     <productContext.Provider value={cloud}>
       {props.children}

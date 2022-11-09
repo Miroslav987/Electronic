@@ -1,5 +1,4 @@
 import React from "react";
-import Comments from "./Components/Comments/Comments";
 import Footer from "./Components/Footer/Footer";
 import NavBar from "./Components/NavBar/NavBar";
 import AuthContextProvider from "./context/AuthContextProvider";

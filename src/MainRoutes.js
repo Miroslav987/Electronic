@@ -7,7 +7,7 @@ import ProductDetails from "./Components/Products/ProductDetails/ProductDetails"
 import EditProduct from "./Components/Admin/EditProduct/EditProduct";
 import Basket from "./Components/Basket/Basket";
 import Chosen from "./Components/Chosen/Chosen";
-import Comments from "./Components/Comments/Comments";
+import Comment from "./Components/Comment/Comment";
 // import Authorization from "./Components/Auth/Authorization";
 
 const MainRoutes = () => {
@@ -22,7 +22,7 @@ const MainRoutes = () => {
       <Route path="/edit/:id" element={<EditProduct />} />
       <Route path="/basket" element={<Basket />} />
       <Route path="/chosen" element={<Chosen />} />
-      <Route path="/comments" element={<Comments />} />
+      <Route path="/comments" element={<Comment />} />
     </Routes>
   );
 };
