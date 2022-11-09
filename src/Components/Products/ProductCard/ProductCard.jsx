@@ -80,7 +80,9 @@ const ProductCard = ({ obj }) => {
             </IconButton>
 
             <IconButton aria-label="share">
-              <CommentIcon />
+              <Link to={`/comments`}>
+                <CommentIcon />
+              </Link>
             </IconButton>
           </CardActions>
         </Card>

@@ -7,7 +7,7 @@ import ProductDetails from "./Components/Products/ProductDetails/ProductDetails"
 import EditProduct from "./Components/Admin/EditProduct/EditProduct";
 import Basket from "./Components/Basket/Basket";
 import Chosen from "./Components/Chosen/Chosen";
-import Comments from "./Components/Comnents/Comments";
+import Comments from "./Components/Comments/Comments";
 // import Authorization from "./Components/Auth/Authorization";
 
 const MainRoutes = () => {

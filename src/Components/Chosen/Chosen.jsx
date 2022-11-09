@@ -103,7 +103,7 @@ const Chosen = () => {
                         <h2 className="stcolor">color:</h2>
                         <Box
                           backgroundColor={elem.item.color}
-                          className="block"></Box>
+                          className="block1"></Box>
                       </div>
 
                       <Typography

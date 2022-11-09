@@ -29,7 +29,7 @@
 .stcolor {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-
+/* 
 .block {
   position: relative;
   width: 300px;
@@ -80,4 +80,4 @@
 
 .block:after {
   filter: blur(50px);
-}
+} */

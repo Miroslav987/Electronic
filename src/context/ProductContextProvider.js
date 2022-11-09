@@ -27,7 +27,7 @@ function reducer(prevState, action) {
   }
 }
 
-const ProductContextProvider = (props) => {
+const ProductContextProvider = props => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
   const location = useLocation();
 
@@ -89,6 +89,7 @@ const ProductContextProvider = (props) => {
     productDetails: state.productDetails,
     pageTotalCount: state.pageTotalCount,
   };
+  console.log(cloud);
   return (
     <productContext.Provider value={cloud}>
       {props.children}
