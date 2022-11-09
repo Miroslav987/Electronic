@@ -1,4 +1,5 @@
 import { Grid, Box, Button, TextField, Typography } from "@mui/material";
+import { height } from "@mui/system";
 import axios from "axios";
 
 import React, { useContext, useEffect, useState } from "react";
@@ -35,10 +36,23 @@ const Comment = () => {
     editProduct(id, inpValues);
     // navigate("/list");
   }
-  console.log(inpValues);
+
   return (
     <>
-      <h2 id="add-title">Редактирование товара</h2>
+      <Box
+        sx={{
+          margin: "10px",
+          width: "50vw",
+          height: "50px",
+          border: "2px solid black",
+        }}>
+        {inpValues ? (
+          // ? inpValues.map(elem => (
+          <Typography sx={{ width: "100%" }} variant="h4">
+            {inpValues.comment}
+          </Typography>
+        ) : null}
+      </Box>
       <form id="form-add" onSubmit={e => handleSave(e)}>
         <TextField
           className="outlined-basic"
@@ -52,17 +66,6 @@ const Comment = () => {
           Сохранить
         </Button>
       </form>
-      <Grid sx={{ width: "40%" }} ml="40px" my="20px">
-        <Typography variant="h4">Filter</Typography>
-      </Grid>
-      <Grid
-        container
-        direction="row"
-        justifyContent="space-around"
-        alignItems="flex-start"
-        sx={{ width: "90%" }}
-        mx="auto"
-        my="40px"></Grid>
     </>
   );
 };
