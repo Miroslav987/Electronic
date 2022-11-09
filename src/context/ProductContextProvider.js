@@ -29,7 +29,7 @@ function reducer(prevState, action) {
 
 const ProductContextProvider = props => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
-  console.log(state);
+
   const location = useLocation();
 
   const navigate = useNavigate();

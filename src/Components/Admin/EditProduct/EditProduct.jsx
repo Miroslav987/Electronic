@@ -21,7 +21,7 @@ const EditProduct = () => {
     };
     setInpValues(obj);
   }
-
+  console.log(inpValues);
   const navigate = useNavigate();
 
   function handleSave(e) {

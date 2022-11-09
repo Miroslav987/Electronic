@@ -14,6 +14,7 @@ const AddProduct = () => {
   const [img1, setImg1] = useState("");
   const [img2, setImg2] = useState("");
   const [img3, setImg3] = useState("");
+  const [comment, setComment] = useState("");
 
   function handleAdd(e) {
     e.preventDefault(); // останавливает автообновление бразуреа при отправке данных через form
@@ -42,6 +43,7 @@ const AddProduct = () => {
       img1,
       img2,
       img3,
+      comment,
     };
     addProduct(obj);
     setCategory("");

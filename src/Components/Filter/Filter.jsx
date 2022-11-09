@@ -19,9 +19,21 @@ const Filter = ({ category, setCategory, price, setPrice }) => {
         name="radio-buttons-group"
         value={category}
         onChange={e => setCategory(e.target.value)}>
-        <FormControlLabel value="phone" control={<Radio />} label="Телефоны" />
-        <FormControlLabel value="laptop" control={<Radio />} label="Ноутбуки" />
-        <FormControlLabel value="watch" control={<Radio />} label="Часы" />
+        <FormControlLabel
+          value="videocart"
+          control={<Radio />}
+          label="Видеокарты"
+        />
+        <FormControlLabel
+          value="motherboard"
+          control={<Radio />}
+          label="Материнcкая плата"
+        />
+        <FormControlLabel
+          value="memory"
+          control={<Radio />}
+          label="Оперативная память"
+        />
         <FormControlLabel value="all" control={<Radio />} label="Все товары" />
       </RadioGroup>
       <FormLabel id="demo-radio-buttons-group-label">По ценам</FormLabel>

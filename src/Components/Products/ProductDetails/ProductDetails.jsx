@@ -116,7 +116,7 @@ const ProductDetails = () => {
                     sx={{ marginLeft: "20px" }}
                     onClick={() => addProductToBasket(productDetails)}>
                     <AddShoppingCart />
-                  </Button>{" "}
+                  </Button>
                   <IconButton
                     aria-label="add to favorites"
                     sx={{ marginLeft: "20px" }}

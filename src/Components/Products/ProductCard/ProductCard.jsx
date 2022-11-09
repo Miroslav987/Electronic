@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -13,7 +13,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import CommentIcon from "@mui/icons-material/Comment";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import "./ProductCard.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import {
   Button,
   FormControl,
@@ -25,15 +25,20 @@ import { chosenContext } from "../../../context/ChosenContextProvider";
 import { productContext } from "../../../context/ProductContextProvider";
 
 const ProductCard = ({ obj }) => {
+  const { productDetails } = useContext(productContext);
+  const navigate = useNavigate();
   let background = obj.color;
   let style = {
     background,
   };
   return (
-    <Link to={`/details/${obj.id}`}>
-      <div className="block">
-        <Card className="card" sx={{ maxWidth: 300, borderRadius: 5 }}>
+    <div className="block">
+      {/* <Link to={`/details/${obj.id}`}> */}
+
+      <Card className="card" sx={{ maxWidth: 300, borderRadius: 5 }}>
+        <Link to={`/details/${obj.id}`}>
           <CardHeader
+            className="stcolor"
             // avatar={
             //   <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
             //     {obj.category[0].toUpperCase()}
@@ -52,8 +57,12 @@ const ProductCard = ({ obj }) => {
             image={obj.img1}
             alt={obj.title}
           />
+
           <CardContent>
-            <Typography variant="h5" style={{ marginBottom: 10 }}>
+            <Typography
+              className="stcolor"
+              variant="h5"
+              style={{ marginBottom: 10 }}>
               {obj.title} {obj.model}
             </Typography>
             <div
@@ -74,20 +83,21 @@ const ProductCard = ({ obj }) => {
               {obj.price} сом
             </Typography>
           </CardContent>
-          <CardActions disableSpacing>
-            <IconButton aria-label="add to favorites">
-              <FavoriteIcon />
-            </IconButton>
+        </Link>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
+          </IconButton>
 
-            <IconButton aria-label="share">
-              <Link to={`/comments`}>
-                <CommentIcon />
-              </Link>
-            </IconButton>
-          </CardActions>
-        </Card>
-      </div>
-    </Link>
+          <IconButton
+            aria-label="share"
+            onClick={() => navigate(`/comments/${productDetails.id}`)}>
+            <CommentIcon />
+          </IconButton>
+        </CardActions>
+      </Card>
+      {/* </Link> */}
+    </div>
   );
 };
 

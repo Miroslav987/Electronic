@@ -9,7 +9,6 @@ import { grey } from "@mui/material/colors";
 const ProductsList = () => {
   const { productsArr, readProduct, pageTotalCount } =
     useContext(productContext);
-  console.log(productsArr);
   const [paramsSearch, setParamsSearch] = useSearchParams();
   const [category, setCategory] = useState("all");
   const [price, setPrice] = useState([0, 200000]);
