@@ -1,0 +1,33 @@
+body {
+  /* background-size: 80vw 100vh;
+
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPqIcQz9kLy3JXKODl7j_bB7rgGLk2YY7J7A&usqp=CAU"); */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #fbfbfb;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+/* .bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+} */
+/* 
+.container {
+  background: #fff;
+  margin: auto;
+  height: auto;
+  width: 900px;
+} */
+footer {
+  background: black;
+  position: relative;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}

@@ -1,0 +1,32 @@
+.cardText p {
+  /* overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.3em;
+  height: 4.2em; */
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+.block {
+  width: 30px;
+  height: 30px;
+  border: 4px solid rgb(205, 205, 205);
+}
+.card {
+  letter-spacing: 1px;
+  border-radius: 20px;
+}
+.card:hover {
+  box-shadow: 0px 5px 5px 0px rgba(255, 0, 0, 0.711),
+    5px 5px 5px 0px rgba(102, 255, 0, 0.666),
+    0px 5px 0px 5px rgba(0, 187, 255, 0.711);
+}
+.block {
+  margin-left: 10px;
+  border-radius: 100px;
+}
+.stcolor {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
