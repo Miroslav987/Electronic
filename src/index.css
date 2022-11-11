@@ -1,7 +1,6 @@
 body {
-  /* background-size: 80vw 100vh;
+  background: black;
 
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPqIcQz9kLy3JXKODl7j_bB7rgGLk2YY7J7A&usqp=CAU"); */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -24,10 +23,25 @@ a {
   height: auto;
   width: 900px;
 } */
+
 footer {
   background: black;
   position: relative;
   bottom: 0;
   right: 0;
   left: 0;
+}
+.iconLike {
+  color: red;
+}
+
+@media all and (max-width: 1300px) {
+  #prodCard {
+    display: flex;
+    flex-direction: column;
+  }
+  .prodCard {
+    display: flex;
+    flex-direction: column;
+  }
 }

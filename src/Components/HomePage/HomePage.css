@@ -16,7 +16,7 @@
 .textBG {
   width: 100%;
   position: absolute;
-  top: 20%;
+  top: 40%;
   display: flex;
   justify-content: center;
   z-index: 2;

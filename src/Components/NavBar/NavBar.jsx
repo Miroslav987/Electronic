@@ -90,21 +90,21 @@ function NavBar() {
       onClose={handleMobileMenuClose}>
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
+          <Link to="/basket">
+            <Badge badgeContent={basketCount} color="error">
+              <AddShoppingCartIcon sx={{ color: "black" }} />
+            </Badge>
+          </Link>
         </IconButton>
-        <p>Messages</p>
       </MenuItem>
       <MenuItem>
         <IconButton
           size="large"
           aria-label="show 17 new notifications"
-          color="inherit"
-          sx={{ color: "black" }}>
+          color="inherit">
           <Link to="chosen">
             <Badge badgeContent={chosenCount} color="error">
-              <StarIcon />
+              <StarIcon sx={{ color: "black" }} />
             </Badge>
           </Link>
         </IconButton>

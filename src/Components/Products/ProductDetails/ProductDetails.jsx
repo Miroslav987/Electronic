@@ -41,12 +41,11 @@ const ProductDetails = () => {
   }, [id]);
 
   const navigate = useNavigate();
-
   return (
     <>
       {productDetails ? (
         <Container sx={{ marginTop: "40px" }}>
-          <Grid container spacing={2}>
+          <Grid id="prodCard" container spacing={2}>
             <Grid item xs={6}>
               <Swiper
                 className="mySwiper2"
@@ -87,7 +86,15 @@ const ProductDetails = () => {
               </Swiper>
             </Grid>
             <Grid item xs={6}>
-              <Paper elevation={3} sx={{ padding: "10px", marginTop: "40px" }}>
+              <Paper
+                elevation={3}
+                sx={{
+                  color: "white",
+                  background: "black",
+
+                  padding: "10px",
+                  marginTop: "40px",
+                }}>
                 <Typography variant="h4">
                   {productDetails.title}{" "}
                   <PhoneIphoneIcon sx={{ fontSize: "30px" }} />
@@ -100,6 +107,7 @@ const ProductDetails = () => {
                 <Alert
                   icon={<AttachMoneyIcon />}
                   sx={{
+                    background: "white",
                     fontSize: "25px",
                     fontWeight: 700,
                     mt: "20px",
@@ -133,18 +141,25 @@ const ProductDetails = () => {
                   <Button
                     variant="contained"
                     color="error"
-                    sx={{ width: "48%" }}
+                    sx={{
+                      border: " 2px solid red",
+                      background: "black",
+                      color: "red",
+                      width: "48%",
+                    }}
                     onClick={() => deleteProduct(productDetails.id)}>
                     Delete
                   </Button>
-                  {/* <Link
-                    to={`/edit/${productDetails.id}`}
-                    style={{ width: "50%" }}
-                  > */}
+
                   <Button
                     variant="contained"
                     color="warning"
-                    sx={{ width: "48%" }}
+                    sx={{
+                      border: " 2px solid orange",
+                      background: "black",
+                      color: "orange",
+                      width: "48%",
+                    }}
                     onClick={() => navigate(`/edit/${productDetails.id}`)}>
                     Edit
                   </Button>

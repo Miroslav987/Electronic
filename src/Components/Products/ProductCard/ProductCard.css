@@ -33,7 +33,7 @@
 
 .block {
   position: relative;
-  width: 300px;
+  width: 360px;
   height: 555px;
   border-radius: 25px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0), #27272700);

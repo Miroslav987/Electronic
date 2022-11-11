@@ -3,8 +3,7 @@ import { height } from "@mui/system";
 import axios from "axios";
 
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-
+import { useNavigate, useParams } from "react-router-dom";
 import { productContext } from "../../../context/ProductContextProvider";
 
 const Comment = () => {
@@ -22,6 +21,7 @@ const Comment = () => {
       ...inpValues,
       [e.target.name]: e.target.value,
     };
+
     setInpValues(obj);
   }
 
@@ -29,7 +29,7 @@ const Comment = () => {
 
   function handleSave(e) {
     e.preventDefault(); // останавливает автообновление бразуреа при отправке данных через form
-    if (!inpValues.category.trim()) {
+    if (!inpValues.comment.trim()) {
       alert("Заполните все поля!");
       return;
     }
@@ -39,7 +39,7 @@ const Comment = () => {
 
   return (
     <>
-      <Box
+      {/* <Box
         sx={{
           margin: "10px",
           width: "50vw",
@@ -47,12 +47,11 @@ const Comment = () => {
           border: "2px solid black",
         }}>
         {inpValues ? (
-          // ? inpValues.map(elem => (
           <Typography sx={{ width: "100%" }} variant="h4">
             {inpValues.comment}
           </Typography>
         ) : null}
-      </Box>
+      </Box> */}
       <form id="form-add" onSubmit={e => handleSave(e)}>
         <TextField
           className="outlined-basic"
@@ -62,8 +61,11 @@ const Comment = () => {
           // value={inpValues.Comment}
           onChange={e => handleChange(e)}
         />
-        <Button variant="contained" type="submit">
-          Сохранить
+        <Button
+          sx={{ background: "black", color: "white" }}
+          variant="contained"
+          type="submit">
+          Save
         </Button>
       </form>
     </>

@@ -5,6 +5,7 @@ import { productContext } from "../../../context/ProductContextProvider";
 import Filter from "../../Filter/Filter";
 import ProductCard from "../ProductCard/ProductCard";
 import { grey } from "@mui/material/colors";
+import "./List.css";
 
 const ProductsList = () => {
   const { productsArr, readProduct, pageTotalCount } =
@@ -50,10 +51,11 @@ const ProductsList = () => {
         />
       </Grid>
       <Grid
+        id="prodCard"
         container
-        direction="row"
+        // direction="row"
         justifyContent="space-around"
-        alignItems="flex-start"
+        // alignItems="flex-start"
         sx={{ width: "90%" }}
         mx="auto"
         my="40px">

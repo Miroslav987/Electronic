@@ -3,14 +3,15 @@ import "firebase/compat/app";
 import "firebase/compat/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDESvTVaT09IcF4srJiOTQOqHLFC7ahiBE",
-  authDomain: "js25-online-project.firebaseapp.com",
-  projectId: "js25-online-project",
-  storageBucket: "js25-online-project.appspot.com",
-  messagingSenderId: "469160298954",
-  appId: "1:469160298954:web:a48c9188336c3d47352733",
+  apiKey: "AIzaSyDiBO5HBoLz7EZGsQC1CBWuLRabYRYS10U",
+  authDomain: "js25-crud.firebaseapp.com",
+  projectId: "js25-crud",
+  storageBucket: "js25-crud.appspot.com",
+  messagingSenderId: "632523800207",
+  appId: "1:632523800207:web:c8cf6aa137a31cb8763afa",
 };
 
 // Initialize Firebase
 const fire = firebase.initializeApp(firebaseConfig);
+console.log(fire);
 export default fire;

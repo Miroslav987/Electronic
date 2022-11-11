@@ -29,7 +29,7 @@ const AuthContextProvider = ({ children }) => {
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .catch((error) => {
+      .catch(error => {
         switch (error.code) {
           case "auth/email-already-in-use":
             setEmailError(error.message);
@@ -53,7 +53,7 @@ const AuthContextProvider = ({ children }) => {
     fire
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .catch((error) => {
+      .catch(error => {
         switch (error.code) {
           case "auth/invalid-email":
           case "auth/user-not-found":
@@ -73,7 +73,7 @@ const AuthContextProvider = ({ children }) => {
   };
 
   const authListener = () => {
-    fire.auth().onAuthStateChanged((currentUser) => {
+    fire.auth().onAuthStateChanged(currentUser => {
       if (currentUser) {
         clearInputs();
         setUser(currentUser);

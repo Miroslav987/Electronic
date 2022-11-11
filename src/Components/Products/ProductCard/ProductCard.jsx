@@ -23,6 +23,7 @@ import {
 } from "@mui/material";
 import { chosenContext } from "../../../context/ChosenContextProvider";
 import { productContext } from "../../../context/ProductContextProvider";
+import { useState } from "react";
 
 const ProductCard = ({ obj }) => {
   const { productDetails } = useContext(productContext);
@@ -31,11 +32,22 @@ const ProductCard = ({ obj }) => {
   let style = {
     background,
   };
+  // function Like() {
+  //   style = {
+  //     color: "red",
+  //   };
+  //   setSt(style);
+  // }
+  // const [st, setSt] = useState();
   return (
     <div className="block">
       {/* <Link to={`/details/${obj.id}`}> */}
 
-      <Card className="card" sx={{ maxWidth: 300, borderRadius: 5 }}>
+      <Card
+        className="card"
+        sx={{
+          borderRadius: 5,
+        }}>
         <Link to={`/details/${obj.id}`}>
           <CardHeader
             className="stcolor"
@@ -88,15 +100,16 @@ const ProductCard = ({ obj }) => {
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />
           </IconButton>
-
+          {/* <Link to={`/comments/${productDetails.id}`}> */}
           <IconButton
             aria-label="share"
             onClick={() => navigate(`/comments/${productDetails.id}`)}>
             <CommentIcon />
           </IconButton>
+          {/* </Link> */}
+          <Typography>{obj.comment}</Typography>
         </CardActions>
       </Card>
-      {/* </Link> */}
     </div>
   );
 };
