@@ -14,8 +14,6 @@ const AddProduct = () => {
   const [img1, setImg1] = useState("");
   const [img2, setImg2] = useState("");
   const [img3, setImg3] = useState("");
-  const [comment, setComment] = useState("");
-
   function handleAdd(e) {
     e.preventDefault(); // останавливает автообновление бразуреа при отправке данных через form
     if (
@@ -43,7 +41,6 @@ const AddProduct = () => {
       img1,
       img2,
       img3,
-      comment,
     };
     addProduct(obj);
     setCategory("");
@@ -59,10 +56,24 @@ const AddProduct = () => {
 
   return (
     <>
-      <h2 style={{ fontFamily: "sans-serif" }} id="add-title">
+      <h2
+        style={{
+          position: "relative",
+          color: "white",
+          fontFamily: "sans-serif",
+        }}
+        id="add-title">
         Добавление товара
       </h2>
-      <form id="form-add" onSubmit={e => handleAdd(e)}>
+      <form
+        style={{
+          position: "relative",
+          borderRadius: "5px",
+          background: " rgb(242 242 242 / 85%)",
+          border: " 10px solid rgb(218 218 218 / 69%)",
+        }}
+        id="form-add"
+        onSubmit={e => handleAdd(e)}>
         <Box sx={{ display: "flex" }}>
           <TextField
             className="outlined-basic"
@@ -137,7 +148,16 @@ const AddProduct = () => {
             onChange={e => setImg3(e.target.value)}
           />
         </Box>
-        <Button sx={{ background: "black" }} variant="contained" type="submit">
+        {/* </Box> */}
+        <Button
+          sx={{
+            background: "black",
+            // borderBottom: "1px solid white",
+            // borderLeft: "1px solid white",
+            // borderRight: "1px solid white",
+          }}
+          variant="contained"
+          type="submit">
           Добавить
         </Button>
       </form>

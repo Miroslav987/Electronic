@@ -16,11 +16,12 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { basketContext } from "../../context/BasketContextProvider";
 import LiveSearch from "../LiveSearch/LiveSearch";
-import { authContext } from "../../context/AuthContextProvider";
+// import { authContext } from "../../context/AuthContextProvider";
 import { Button } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import { grey } from "@mui/material/colors";
 import { chosenContext } from "../../context/ChosenContextProvider";
+import { authContext } from "../../context/AuthContextProvider";
 
 function NavBar() {
   const location = useLocation();
@@ -68,7 +69,9 @@ function NavBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}>
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <Button sx={{ color: "black" }} onClick={handleLogout}>
+        LogOut
+      </Button>
     </Menu>
   );
 
@@ -124,36 +127,45 @@ function NavBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box style={{ width: "100%" }} sx={{ flexGrow: 1 }}>
       <AppBar
         position="static"
-        sx={{ bgcolor: "black", fontFamily: "sans-serif" }}>
+        sx={{
+          position: "relative",
+          bgcolor: "#00000033",
+          fontFamily: "sans-serif",
+        }}>
         <Toolbar>
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}>
-            Electronic
+            OnlineShop
           </Typography>
-          <LiveSearch />
+
           <Box
+            className="Navtext"
             sx={{
               display: "flex",
-              width: "50%",
-              justifyContent: "space-around",
+              width: "75%",
+              justifyContent: "space-evenly",
             }}>
             <Link to="/">Home</Link>
-            <Link to="/add">Add Products</Link>
+            {user.email === user.email ? (
+              <Link to="/add">Add Products</Link>
+            ) : null}
             {location.pathname === "/list" ? (
               <span style={{ cursor: "pointer" }}>Products List</span>
             ) : (
               <Link to="/list">Products List</Link>
             )}
-            {/* <Link to="/list">Products List</Link> */}
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <Link style={{ display: "flex", alignItems: "center" }} to="/">
+              {user.email ? user.email : <span>Не зашел</span>}
+            </Link>
             <IconButton
               size="large"
               aria-label="show 4 new mails"
@@ -164,9 +176,6 @@ function NavBar() {
                 </Badge>
               </Link>
             </IconButton>
-            {/* <Link to="/"> */}
-            {/* {user.email ? user.email : <span>Не зашел</span>} */}
-            {/* </Link> */}
 
             <IconButton
               size="large"
@@ -181,11 +190,7 @@ function NavBar() {
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
-              color="inherit">
-              <Button sx={{ color: "white" }} onClick={handleLogout}>
-                LogOut
-              </Button>
-            </IconButton>
+              color="inherit"></IconButton>
             <IconButton
               size="large"
               edge="end"

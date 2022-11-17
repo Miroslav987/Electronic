@@ -31,12 +31,14 @@ const Basket = () => {
 
   return (
     <>
-      <Container maxWidth="lg">
-        <Typography variant="h3">My Basket</Typography>
+      <Container sx={{ position: "relative" }} maxWidth="lg">
+        <Typography sx={{ color: "white" }} variant="h3">
+          My Basket
+        </Typography>
         {productsInBasket ? (
           <>
             <TableContainer component={Paper}>
-              <Table sx={{ minWidth: 650 }}>
+              <Table sx={{ background: "grey", minWidth: 650 }}>
                 <TableHead>
                   <TableRow>
                     <TableCell sx={{ fontWeight: "bold" }}>Title</TableCell>
@@ -77,7 +79,9 @@ const Basket = () => {
                 </TableBody>
               </Table>
             </TableContainer>
-            <Button variant="contained" sx={{ margin: "20px auto" }}>
+            <Button
+              variant="contained"
+              sx={{ background: "black", margin: "20px auto" }}>
               Buy now for {productsInBasket.totalPrice}
             </Button>
           </>

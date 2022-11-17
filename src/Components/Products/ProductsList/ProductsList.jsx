@@ -4,8 +4,6 @@ import { Link, useSearchParams } from "react-router-dom";
 import { productContext } from "../../../context/ProductContextProvider";
 import Filter from "../../Filter/Filter";
 import ProductCard from "../ProductCard/ProductCard";
-import { grey } from "@mui/material/colors";
-import "./List.css";
 
 const ProductsList = () => {
   const { productsArr, readProduct, pageTotalCount } =
@@ -38,11 +36,10 @@ const ProductsList = () => {
   useEffect(() => {
     readProduct();
   }, [paramsSearch, pageTotalCount]);
-  let color = grey[700];
+
   return (
     <>
-      <Grid sx={{ width: "40%" }} ml="40px" my="20px">
-        <Typography variant="h4">Filter</Typography>
+      <Grid sx={{ width: "50%", margin: "10px auto" }}>
         <Filter
           category={category}
           setCategory={setCategory}
@@ -63,6 +60,7 @@ const ProductsList = () => {
           ? productsArr.map(item => (
               <Grid item={true} xs={3.5} mb={7} key={item.id}>
                 <ProductCard obj={item} />
+                {console.log(item)}
               </Grid>
             ))
           : null}
@@ -72,8 +70,8 @@ const ProductsList = () => {
         mx="auto"
         my="20px">
         <Pagination
+          color="primary"
           count={+pageTotalCount}
-          color="grey"
           page={+page}
           onChange={(e, value) => setPage(value)}
         />

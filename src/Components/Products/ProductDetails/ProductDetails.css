@@ -19,3 +19,11 @@
   background: black;
   color: white;
 }
+.Com span {
+  width: 100px;
+}
+@media all and (max-width: 1300px) {
+  #DetInfo {
+    width: 82vw;
+  }
+}

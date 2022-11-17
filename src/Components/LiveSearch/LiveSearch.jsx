@@ -61,7 +61,7 @@ const LiveSearch = () => {
   }, [searchValue]);
 
   return (
-    <Search>
+    <Search sx={{ background: "#ffffff42", border: "1px solid black" }}>
       <SearchIconWrapper>
         <SearchIcon />
       </SearchIconWrapper>
@@ -69,7 +69,7 @@ const LiveSearch = () => {
         placeholder="Search…"
         inputProps={{ "aria-label": "search" }}
         value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value)}
+        onChange={e => setSearchValue(e.target.value)}
       />
     </Search>
   );

@@ -3,12 +3,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer>
-      <Box
-        px={{ xs: 3, sm: 10 }}
-        py={{ xs: 5, sm: 10 }}
-        bgcolor="text.secondary"
-        color="white">
+    <footer style={{ width: "100%" }}>
+      <Box px={{ xs: 3, sm: 10 }} py={{ xs: 5, sm: 10 }} color="white">
         <Typography
           variant="h2"
           sx={{
@@ -17,66 +13,67 @@ const Footer = () => {
             fontSize: 40,
             marginBottom: 10,
           }}>
-          Electronic
+          OnlineShop
         </Typography>
+        <Box marginBottom={3} borderBottom={1}></Box>
         <Container
           maxWidth="lg"
           sx={{ fontSize: 20, fontFamily: "sans-serif" }}>
-          <Grid container spacing={5}>
-            <Grid item xs={12} sm={4}>
-              <Box borderBottom={1}>Help</Box>
-              <Box>
+          <Box className="footText">
+            <ul>
+              Help
+              <li>
                 <Link href="/" color="inherit">
                   Contact
                 </Link>
-              </Box>
-              <Box>
+              </li>
+              <li>
                 <Link href="/" color="inherit">
                   Support
                 </Link>
-              </Box>
-              <Box>
+              </li>
+              <li>
                 <Link href="/" color="inherit">
                   Privacy
                 </Link>
-              </Box>
-            </Grid>
+              </li>
+            </ul>
 
-            <Grid item xs={12} sm={4}>
-              <Box borderBottom={1}>Account</Box>
-              <Box>
+            <ul>
+              Account
+              <li>
                 <Link href="/" color="inherit">
                   Login
                 </Link>
-              </Box>
-              <Box>
+              </li>
+              <li>
                 <Link href="/" color="inherit">
                   Register
                 </Link>
-              </Box>
-            </Grid>
-
-            <Grid item xs={12} sm={4}>
-              <Box borderBottom={1}>Messages</Box>
-              <Box>
+              </li>
+            </ul>
+            <ul>
+              Messages
+              <li>
                 <Link href="/" color="inherit">
                   Backup
                 </Link>
-              </Box>
-              <Box>
+              </li>
+              <li>
                 <Link href="/" color="inherit">
                   History
                 </Link>
-              </Box>
-              <Box>
+              </li>
+              <li>
                 <Link href="/" color="inherit">
                   Roll
                 </Link>
-              </Box>
-            </Grid>
-          </Grid>
+              </li>
+            </ul>
+          </Box>
+          <Box marginTop={3} borderBottom={1}></Box>
           <Box textAlign="center" pt={{ xs: 5, sm: 10 }} pb={{ xs: 5, sm: 0 }}>
-            Material UI Workshop &reg; {new Date().getFullYear()}
+            Material UI Onlineshop &reg; {new Date().getFullYear()}
           </Box>
         </Container>
       </Box>

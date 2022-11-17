@@ -65,65 +65,54 @@ const Chosen = () => {
           {productsInChosen ? (
             <>
               {productsInChosen.products.map(elem => (
-                <Link to={`/details/${elem.item.id}`}>
-                  <Card
-                    key={elem.item.id}
-                    className="card"
-                    sx={{ margin: 2, maxWidth: 300, borderRadius: 5 }}>
+                <Card
+                  className="card"
+                  sx={{
+                    margin: "20px",
+                    position: "relative",
+                    zIndex: 0,
+                    background: "#414141a3",
+                    borderRadius: 5,
+                    boxShadow: "0px 0px 32px -10px #00ff0b",
+                  }}>
+                  <Link to={`/details/${elem.item.id}`}>
                     <CardHeader
-                    // avatar={
-                    //   <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
-                    //     {obj.category[0].toUpperCase()}
-                    //   </Avatar>
-                    // }
-                    // action={
-                    //   <IconButton aria-label="settings">
-                    //     <MoreVertIcon />
-                    //   </IconButton>
-                    // }
-                    // title={obj.category.toUpperCase()}
+                      className="stcolor"
+                      title={elem.item.category.toUpperCase()}
                     />
+
                     <CardMedia
                       component="img"
-                      height="280"
+                      className="cardImg"
                       image={elem.item.img1}
                       alt={elem.item.title}
                     />
+
                     <CardContent>
-                      <Typography variant="h5" style={{ marginBottom: 10 }}>
+                      <Typography
+                        className="stcolor"
+                        variant="h5"
+                        style={{ marginBottom: 10 }}>
                         {elem.item.title} {elem.item.model}
                       </Typography>
                       <div
                         style={{
-                          marginBottom: 20,
-                          height: 30,
+                          marginBottom: 10,
+                          height: 20,
                           display: "flex",
                           alignItems: "center",
                         }}>
                         <h2 className="stcolor">color:</h2>
-                        <Box
-                          backgroundColor={elem.item.color}
-                          className="block1"></Box>
+                        <div
+                          className="block1"
+                          backgroundColor={elem.item.color}></div>
                       </div>
-
-                      <Typography
-                        variant="h5"
-                        className="cardText"
-                        color="text.secondary">
+                      <Typography variant="h5" className="cardText">
                         {elem.item.price} сом
                       </Typography>
                     </CardContent>
-                    <CardActions disableSpacing>
-                      <IconButton aria-label="add to favorites">
-                        <FavoriteIcon />
-                      </IconButton>
-
-                      <IconButton aria-label="share">
-                        <ShareIcon />
-                      </IconButton>
-                    </CardActions>
-                  </Card>
-                </Link>
+                  </Link>
+                </Card>
               ))}
             </>
           ) : (

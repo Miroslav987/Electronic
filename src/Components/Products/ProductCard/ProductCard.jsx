@@ -3,35 +3,27 @@ import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
+
 import Typography from "@mui/material/Typography";
-import { red, blue } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import CommentIcon from "@mui/icons-material/Comment";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+
 import "./ProductCard.css";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import {
-  Button,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-} from "@mui/material";
-import { chosenContext } from "../../../context/ChosenContextProvider";
+
+// import { chosenContext } from "../../../context/ChosenContextProvider";
 import { productContext } from "../../../context/ProductContextProvider";
 import { useState } from "react";
+import { chosenContext } from "../../../context/ChosenContextProvider";
 
 const ProductCard = ({ obj }) => {
+  const { addProductToChosen } = useContext(chosenContext);
   const { productDetails } = useContext(productContext);
+
   const navigate = useNavigate();
   let background = obj.color;
   let style = {
     background,
   };
+  // console.log(obj.comment);
   // function Like() {
   //   style = {
   //     color: "red",
@@ -46,26 +38,18 @@ const ProductCard = ({ obj }) => {
       <Card
         className="card"
         sx={{
+          position: "relative",
+          zIndex: 0,
+          background: "#414141a3",
           borderRadius: 5,
+          boxShadow: "0px 0px 32px -10px #00ff0b",
         }}>
         <Link to={`/details/${obj.id}`}>
-          <CardHeader
-            className="stcolor"
-            // avatar={
-            //   <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
-            //     {obj.category[0].toUpperCase()}
-            //   </Avatar>
-            // }
-            // action={
-            //   <IconButton aria-label="settings">
-            //     <MoreVertIcon />
-            //   </IconButton>
-            // }
-            title={obj.category.toUpperCase()}
-          />
+          <CardHeader className="stcolor" title={obj.category.toUpperCase()} />
+
           <CardMedia
+            className="cardImg"
             component="img"
-            height="280"
             image={obj.img1}
             alt={obj.title}
           />
@@ -79,36 +63,25 @@ const ProductCard = ({ obj }) => {
             </Typography>
             <div
               style={{
-                marginBottom: 20,
-                height: 30,
+                marginBottom: 10,
+                height: 20,
                 display: "flex",
                 alignItems: "center",
               }}>
               <h2 className="stcolor">color:</h2>
               <div className="block1" style={style}></div>
             </div>
-
-            <Typography
-              variant="h5"
-              className="cardText"
-              color="text.secondary">
+            <Typography variant="h5" className="cardText">
               {obj.price} сом
             </Typography>
+            {/* <IconButton
+              aria-label="add to favorites"
+              sx={{ marginLeft: "20px" }}
+              onClick={() => addProductToChosen(productDetails)}>
+              <StarIcon />
+            </IconButton> */}
           </CardContent>
         </Link>
-        <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          {/* <Link to={`/comments/${productDetails.id}`}> */}
-          <IconButton
-            aria-label="share"
-            onClick={() => navigate(`/comments/${productDetails.id}`)}>
-            <CommentIcon />
-          </IconButton>
-          {/* </Link> */}
-          <Typography>{obj.comment}</Typography>
-        </CardActions>
       </Card>
     </div>
   );
